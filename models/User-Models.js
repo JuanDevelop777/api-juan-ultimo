@@ -19,11 +19,20 @@ const userSchema = mongoose.Schema({
     require: true,
   },
   avatar: String,
-  
-  age: Number,
-});
 
-userSchema.pre("save", async (next) => {
+  age: Number,
+
+  deletedAt: {
+    type: Date,
+    default: null,
+  },
+},
+{
+  timestamps:true,
+}
+);
+
+userSchema.pre("save", async function (next) {
   const hash = await bcrypt.hash(this.password, 10);
   this.password = hash;
   next();

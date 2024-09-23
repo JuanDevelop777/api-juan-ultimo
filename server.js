@@ -1,6 +1,6 @@
+import "dotenv/config";
 import fs from "fs";
 import path from "path";
-import "dotenv/config";
 import express from "express";
 import connectDB from "./config/mongoose.js";
 import userRoutes from "./routes/userRoutes.js";
