@@ -18,10 +18,9 @@ const userSchema = mongoose.Schema({
     type: String,
     require: true,
   },
-  avatar: {
-    type: String,
-    age: Number,
-  },
+  avatar: String,
+  
+  age: Number,
 });
 
 userSchema.pre("save", async (next) => {
